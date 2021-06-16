@@ -6,9 +6,38 @@ class TabsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: PageView(
+      body: _Pages(),
+      bottomNavigationBar: _Navegation(),
+    );
+  }
+}
+
+class _Navegation extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      //Cambiar la opción seleccionada.
+      currentIndex: 1,
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person_outline),
+          label: 'Para ti',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.public),
+          label: 'Encabezados',
+        ),
+      ],
+    );
+  }
+}
+
+class _Pages extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return PageView(
       physics:
-          BouncingScrollPhysics(), //efecto de transición igual en IOS y Android.
+          NeverScrollableScrollPhysics(); //Inhabilita la fisica del scroll
       children: [
         Container(
           color: Colors.red,
@@ -17,6 +46,6 @@ class TabsPage extends StatelessWidget {
           color: Colors.yellow,
         )
       ],
-    ));
+    );
   }
 }
