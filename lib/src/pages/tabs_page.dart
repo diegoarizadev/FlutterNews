@@ -18,6 +18,7 @@ class _Navegation extends StatelessWidget {
     return BottomNavigationBar(
       //Cambiar la opción seleccionada.
       currentIndex: 1,
+      onTap: (i) => print('$i'),
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.person_outline),
@@ -36,8 +37,7 @@ class _Pages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageView(
-      physics:
-          NeverScrollableScrollPhysics(); //Inhabilita la fisica del scroll
+      physics: NeverScrollableScrollPhysics(), //Inhabilita la fisica del scroll
       children: [
         Container(
           color: Colors.red,
@@ -47,5 +47,17 @@ class _Pages extends StatelessWidget {
         )
       ],
     );
+  }
+}
+
+//Provider para informarle a los Widgets.
+class _NavegationModel with ChangeNotifier {
+  int _pageActual = 0;
+
+  int get pageActual => this._pageActual;
+  set pageActual(int value) {
+    this._pageActual = value;
+    //Ejecuta un precdimiento para informarle a los widgets y se redibujen.
+    notifyListeners();
   }
 }
