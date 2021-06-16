@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TabsPage extends StatelessWidget {
   const TabsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _Pages(),
-      bottomNavigationBar: _Navegation(),
+    return ChangeNotifierProvider(
+      create: (_) => new _NavegationModel(),
+      child: Scaffold(
+        body: _Pages(),
+        bottomNavigationBar: _Navegation(),
+      ),
     );
   }
 }
@@ -15,10 +19,14 @@ class TabsPage extends StatelessWidget {
 class _Navegation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //En el context esta el provider
+    final navegationModel = Provider.of<_NavegationModel>(
+        context); //Instancia de la clase _NavegationModel que se encuentra en el context de la App.
+
     return BottomNavigationBar(
       //Cambiar la opción seleccionada.
-      currentIndex: 1,
-      onTap: (i) => print('$i'),
+      currentIndex: navegationModel.pageActual,
+      onTap: (i) => navegationModel.pageActual = i, //Se le pasa el valor.
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.person_outline),
