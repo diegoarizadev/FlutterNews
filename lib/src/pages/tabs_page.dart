@@ -6,9 +6,17 @@ class TabsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Alejandro Ariza'),
-      ),
-    );
+        body: PageView(
+      physics:
+          BouncingScrollPhysics(), //efecto de transición igual en IOS y Android.
+      children: [
+        Container(
+          color: Colors.red,
+        ),
+        Container(
+          color: Colors.yellow,
+        )
+      ],
+    ));
   }
 }
