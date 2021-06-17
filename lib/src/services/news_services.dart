@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
+import 'package:news/src/models/category_model.dart';
 import 'package:news/src/models/news_models.dart';
 import 'package:http/http.dart' as http;
 
@@ -9,6 +11,16 @@ class NewsServices with ChangeNotifier {
   //NewsServices en la parte mas alta del arbol de widgets, para ser accesible en toda la App.
   List<Article> headlines = []; //Lista de articulos.
   final DateTime _now = DateTime.now();
+
+  List<Category> categories = [
+    Category(FontAwesomeIcons.building, 'business'),
+    Category(FontAwesomeIcons.tv, 'entertainment'),
+    Category(FontAwesomeIcons.addressCard, 'general'),
+    Category(FontAwesomeIcons.headSideVirus, 'health'),
+    Category(FontAwesomeIcons.vials, 'science'),
+    Category(FontAwesomeIcons.volleyballBall, 'sports'),
+    Category(FontAwesomeIcons.memory, 'technology'),
+  ];
 
   //Llamados http.
   NewsServices() {
