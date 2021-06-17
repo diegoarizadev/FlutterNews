@@ -44,7 +44,10 @@ class _Navegation extends StatelessWidget {
 class _Pages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final navegationModel = Provider.of<_NavegationModel>(context);
+
     return PageView(
+      controller: navegationModel.pageController,
       physics: NeverScrollableScrollPhysics(), //Inhabilita la fisica del scroll
       children: [
         Container(
@@ -61,11 +64,21 @@ class _Pages extends StatelessWidget {
 //Provider para informarle a los Widgets.
 class _NavegationModel with ChangeNotifier {
   int _pageActual = 0;
+  PageController _pageController =
+      new PageController(); //Controlador para cambiar las paginas.
 
   int get pageActual => this._pageActual;
   set pageActual(int value) {
     this._pageActual = value;
+    _pageController.animateToPage(
+      //Se invoca al controlador para actualizar el page.
+      value,
+      duration: Duration(milliseconds: 250),
+      curve: Curves.easeInOut,
+    );
     //Ejecuta un precdimiento para informarle a los widgets y se redibujen.
     notifyListeners();
   }
+
+  PageController get pageController => this._pageController; //Get
 }
