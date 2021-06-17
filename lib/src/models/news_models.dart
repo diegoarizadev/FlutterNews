@@ -9,12 +9,12 @@ class NewsResponses {
   NewsResponses({
     this.status,
     this.totalResults,
-    this.articles,
+    required this.articles,
   });
 
   String? status;
   int? totalResults;
-  List<Article>? articles;
+  List<Article> articles;
 
   factory NewsResponses.fromJson(Map<String, dynamic> json) => NewsResponses(
         status: json["status"],
@@ -26,7 +26,7 @@ class NewsResponses {
   Map<String, dynamic> toJson() => {
         "status": status,
         "totalResults": totalResults,
-        "articles": List<dynamic>.from(articles!.map((x) => x.toJson())),
+        "articles": List<dynamic>.from(articles.map((x) => x.toJson())),
       };
 }
 

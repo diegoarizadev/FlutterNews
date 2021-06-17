@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:news/src/pages/tabsTwo_pages.dart';
+import 'package:news/src/pages/tabsone_page.dart';
 import 'package:news/src/services/news_services.dart';
 import 'package:provider/provider.dart';
 
@@ -53,12 +55,8 @@ class _Pages extends StatelessWidget {
       controller: navegationModel.pageController,
       physics: NeverScrollableScrollPhysics(), //Inhabilita la fisica del scroll
       children: [
-        Container(
-          color: Colors.red,
-        ),
-        Container(
-          color: Colors.yellow,
-        )
+        TabOnePage(),
+        TabTwoPage(),
       ],
     );
   }
