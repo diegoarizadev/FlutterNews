@@ -7,7 +7,7 @@ class NewsServices with ChangeNotifier {
   final _apiKey = '';
   final _urlNews = 'newsapi.org';
   //NewsServices en la parte mas alta del arbol de widgets, para ser accesible en toda la App.
-  List<Article> headline = []; //Lista de articulos.
+  List<Article> headlines = []; //Lista de articulos.
   final DateTime _now = DateTime.now();
 
   //Llamados http.
@@ -35,7 +35,7 @@ class NewsServices with ChangeNotifier {
     final newsResponse =
         newsResponsesFromJson(response.body); //json.decode(response.body);
 
-    this.headline.addAll(newsResponse.articles);
+    this.headlines.addAll(newsResponse.articles);
 
     notifyListeners(); //Notifica a todos los listener.
   }
