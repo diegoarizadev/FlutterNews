@@ -66,7 +66,11 @@ class _CategoryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('${category.name}');
+        final newsServices = Provider.of<NewsServices>(context,
+            listen:
+                false); //Cuando se encuentra en un evento OnTap, va listen: false.
+
+        newsServices.selectedCategory = category.name;
       },
       child: Container(
         margin: EdgeInsets.symmetric(
