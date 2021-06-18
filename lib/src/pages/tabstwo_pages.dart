@@ -32,6 +32,7 @@ class _ListCategories extends StatelessWidget {
         itemCount: categories.length,
         physics: BouncingScrollPhysics(),
         itemBuilder: (BuildContext context, int index) {
+          final nameCategory = categories[index].name;
           return Container(
             width: 110,
             child: Padding(
@@ -44,7 +45,8 @@ class _ListCategories extends StatelessWidget {
                   SizedBox(
                     height: 5,
                   ),
-                  Text(categories[index].name)
+                  Text(
+                      '${nameCategory[0].toUpperCase()}${nameCategory.substring(1)}')
                 ],
               ),
             ),
@@ -62,16 +64,24 @@ class _CategoryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 40,
-      height: 40,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.white,
-      ),
-      child: Icon(
-        category.icon,
-        color: Colors.black54,
+    return GestureDetector(
+      onTap: () {
+        print('${category.name}');
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: 10,
+        ),
+        width: 40,
+        height: 40,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.white,
+        ),
+        child: Icon(
+          category.icon,
+          color: Colors.black54,
+        ),
       ),
     );
   }
