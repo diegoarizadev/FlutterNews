@@ -32,24 +32,24 @@ class NewsResponses {
 
 class Article {
   Article({
-    this.source,
-    this.author,
+    required this.source,
+    required this.author,
     required this.title,
     required this.description,
-    this.url,
+    required this.url,
     required this.urlToImage,
-    this.publishedAt,
-    this.content,
+    required this.publishedAt,
+    required this.content,
   });
 
-  Source? source;
-  String? author;
-  String title;
-  String description;
-  String? url;
-  String urlToImage;
-  DateTime? publishedAt;
-  String? content;
+  Source source = Source(id: Id.REUTERS, name: '');
+  String author = '';
+  String title = '';
+  String description = '';
+  String url = '';
+  String urlToImage = '';
+  DateTime publishedAt;
+  String content = '';
 
   factory Article.fromJson(Map<String, dynamic> json) => Article(
         source: Source.fromJson(json["source"]),
@@ -63,13 +63,13 @@ class Article {
       );
 
   Map<String, dynamic> toJson() => {
-        "source": source!.toJson(),
+        "source": source.toJson(),
         "author": author,
         "title": title,
         "description": description,
         "url": url,
-        "urlToImage": urlToImage == null ? null : urlToImage,
-        "publishedAt": publishedAt?.toIso8601String(),
+        "urlToImage": urlToImage.isEmpty ? null : urlToImage,
+        "publishedAt": publishedAt.toIso8601String(),
         "content": content,
       };
 }

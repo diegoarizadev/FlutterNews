@@ -14,18 +14,17 @@ class _TabOnePageState extends State<TabOnePage>
   @override
   Widget build(BuildContext context) {
     //Obtener los TopHeadlines
-    final newsServices = Provider.of<NewsServices>(
-        context); //Obtener los Topheadlines del arbol de Widgets
-    //newsServices.headlines
+    final headlines = Provider.of<NewsServices>(context)
+        .headlines; //Obtener los Topheadlines del arbol de Widgets
 
     return Scaffold(
-      body: (newsServices.headlines.length == 0)
+      body: (headlines.length == 0)
           ? Center(
               child: CircularProgressIndicator(
-                color: myThemeDark.accentColor,
+                color: myThemeDark.colorScheme.secondary,
               ),
             )
-          : LitsNews(newsServices.headlines),
+          : ListNews(headlines),
     );
   }
 

@@ -2,18 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:news/src/models/category_model.dart';
 import 'package:news/src/services/news_services.dart';
 import 'package:news/src/theme/darkThemeCustom.dart';
+import 'package:news/src/widgets/list_news.dart';
 import 'package:provider/provider.dart';
 
 class TabTwoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Obtener los TopHeadlines
-    //final newsServices = Provider.of<NewsServices>(context); //Obtener los Topheadlines del arbol de Widgets
+    final newsServices = Provider.of<NewsServices>(
+        context); //Obtener los Topheadlines del arbol de Widgets
     return SafeArea(
       child: Scaffold(
           body: Column(
         children: [
           _ListCategories(),
+          ListNews(newsServices.getArticlesCategorySelected),
         ],
       )),
     );
@@ -71,9 +74,10 @@ class _CategoryButton extends StatelessWidget {
       onTap: () {
         final newsServices = Provider.of<NewsServices>(context,
             listen:
-                false); //Cuando se encuentra en un evento OnTap, va listen: false.
+                false); //Cuando se encuentra en un evento OnTap o click, va listen: false, para que no se redibuje.
 
-        newsServices.selectedCategory = category.name;
+        newsServices.selectedCategory =
+            category.name; //Categorya seleccionada por el usuario.
       },
       child: Container(
         margin: EdgeInsets.symmetric(
@@ -88,7 +92,7 @@ class _CategoryButton extends StatelessWidget {
         child: Icon(
           category.icon,
           color: (newsServices.selectedCategory == this.category.name)
-              ? myThemeDark.accentColor
+              ? myThemeDark.colorScheme.secondary
               : Colors.black54,
         ),
       ),

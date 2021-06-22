@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
       //Se envuelve en un multiprovider ya que la App, puede tener varios provider y que esten en la parte mas alta del arbol, para este caso el provider que necesitamos es NewsServices
       providers: [
         ChangeNotifierProvider(create: (_) => new NewsServices()),
-        //ChangeNotifierProvider(create: (_) => new NewsServices()), //Otro Provider...
       ],
       child: MaterialApp(
         title: 'Material App',

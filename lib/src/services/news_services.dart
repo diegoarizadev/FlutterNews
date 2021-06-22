@@ -6,12 +6,12 @@ import 'package:news/src/models/news_models.dart';
 import 'package:http/http.dart' as http;
 
 class NewsServices with ChangeNotifier {
-  final _apiKey = '';
+  final _apiKey = '0d1b87b909e6463b8f86bfd58013dc49';
   final _urlNews = 'newsapi.org';
   //NewsServices en la parte mas alta del arbol de widgets, para ser accesible en toda la App.
   List<Article> headlines = []; //Lista de articulos.
   final DateTime _now = DateTime.now();
-  String _selectedCategoty = 'business';
+  String _selectedCategory = 'business';
 
   List<Category> categories = [
     Category(FontAwesomeIcons.building, 'business'),
@@ -30,13 +30,17 @@ class NewsServices with ChangeNotifier {
 
   //Llamados http.
   NewsServices() {
-    categories.forEach((item) {
-      //Barre el List.
-      this.categoryArticules[item.name] = [];
-    });
-
     //Quedara de forma global en la App con un provider.
     this.getTopHeadLines();
+
+    categories.forEach((item) {
+      //Inicializa el Mapa, barriendo el arreglo de las categorias.
+      //Barre el List.
+      this.categoryArticules[item.name] =
+          new List<Article>.empty(growable: true);
+    });
+
+    this.getArticlesByCategory(this._selectedCategory);
   }
 
   getTopHeadLines() async {
@@ -64,21 +68,23 @@ class NewsServices with ChangeNotifier {
     notifyListeners(); //Notifica a todos los listener.
   }
 
-  String get selectedCategory => this._selectedCategoty;
+  String get selectedCategory => this._selectedCategory;
+
   set selectedCategory(String value) {
-    this._selectedCategoty = value;
+    this._selectedCategory = value;
     this.getArticlesByCategory(value);
     notifyListeners(); //Notificar a los Listener la categoria seleccionada}
   }
 
   getArticlesByCategory(String category) async {
-//Llamada Http.
-//https://newsapi.org/v2/top-headlines?country=co&category=business&apiKey=0d1b87b909e6463b8f86bfd58013dc49
+    //Llamada Http.
 
+    //Validar para no insertar duplicados
     if (this.categoryArticules[category]!.length > 0) {
-      //this._isLoading = false;
-      //notifyListeners();
-      return this.categoryArticules[category];
+      this._isLoading = false;
+      notifyListeners();
+      return this
+          .categoryArticules[category]; //Se retorna el listado que se tiene.
     }
 
     //Generacion de la URL HTTPS
@@ -97,4 +103,7 @@ class NewsServices with ChangeNotifier {
     this.categoryArticules[category]!.addAll(newsResponse.articles);
     notifyListeners(); //Notifica a todos los listener.
   }
+
+  get getArticlesCategorySelected => this.categoryArticules[this
+      .categoryArticules]; //Get para retornar los Articulos de la categoria seleccionada.
 }

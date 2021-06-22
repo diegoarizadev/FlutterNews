@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/src/pages/tabsTwo_pages.dart';
 import 'package:news/src/pages/tabsone_page.dart';
-import 'package:news/src/services/news_services.dart';
 import 'package:provider/provider.dart';
 
 class TabsPage extends StatelessWidget {
@@ -48,8 +47,6 @@ class _Pages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final navegationModel = Provider.of<_NavegationModel>(context);
-    final newService = Provider.of<NewsServices>(
-        context); //Se recupera la referencia del arbol de widgets de la App.
 
     return PageView(
       controller: navegationModel.pageController,
