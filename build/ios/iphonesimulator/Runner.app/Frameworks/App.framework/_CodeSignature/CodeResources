@@ -16,9 +16,9 @@
 		<data>
 		HuqT/dgvrTHOMum5Qo5BXfxzfaM=
 		</data>
-		<key>flutter_assets/NOTICES</key>
+		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		qLe13zHvxSQ4mKpBcUDGCYioczE=
+		InV+3rmr8oZaKcoBTn+LoPvnItE=
 		</data>
 		<key>flutter_assets/assets/giphy.gif</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>flutter_assets/isolate_snapshot_data</key>
 		<data>
-		ELluN2aQ5lXx4NZnJlBUXyZEfGo=
+		ViusyzK5P8idjp4Ph2gU5oq0FfM=
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		lRgmYDy32K5b5K7gxocP4+R6HSM=
+		D9AjXHc4OQM16MmAcGwg60vhjoI=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>flutter_assets/vm_snapshot_data</key>
 		<data>
-		BICKLyZmEDX0yMJrQwYDz3tKwt8=
+		uXrTLPThYZK6j2f8o9t05YW88Mc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -85,15 +85,15 @@
 			LNlBG1QOXG4VrGVSOjYBvuZorsqRBOHeE2/DSzqRJ3E=
 			</data>
 		</dict>
-		<key>flutter_assets/NOTICES</key>
+		<key>flutter_assets/NOTICES.Z</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qLe13zHvxSQ4mKpBcUDGCYioczE=
+			InV+3rmr8oZaKcoBTn+LoPvnItE=
 			</data>
 			<key>hash2</key>
 			<data>
-			FnhqqDp2y67A2mghjXAe1cOeIJ82JQK/LJGXJdkzUYM=
+			U1bGdRXaX/01bQbOzhDjmhtJea/MuJaiiQBiJtfRMys=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/giphy.gif</key>
@@ -133,22 +133,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ELluN2aQ5lXx4NZnJlBUXyZEfGo=
+			ViusyzK5P8idjp4Ph2gU5oq0FfM=
 			</data>
 			<key>hash2</key>
 			<data>
-			d5Zhq5S+3ylGF8osqx2M/nYmzI/1w4FDUIjGiKWFaOc=
+			fZd/kEoDunfG3SfD+ROExe5gXw7S1ZMqiiLZhk6L8gU=
 			</data>
 		</dict>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lRgmYDy32K5b5K7gxocP4+R6HSM=
+			D9AjXHc4OQM16MmAcGwg60vhjoI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Fyph5Y6YBNv/av7+/ahjthXYhqHisD50lgYUS9Dys3o=
+			D6q7FY8Qa3cBgyYaxskt5YlJ8gNMJLrvBOhuUE6OZ9Y=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -199,11 +199,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BICKLyZmEDX0yMJrQwYDz3tKwt8=
+			uXrTLPThYZK6j2f8o9t05YW88Mc=
 			</data>
 			<key>hash2</key>
 			<data>
-			dW/lW8/DGE7kqgVOIL22hio/M/WrH8+bodAoyvhyXsU=
+			Zvssl9swlhxz7teyko/xVhWf2h15YXAhDcPmoLEk5II=
 			</data>
 		</dict>
 	</dict>
